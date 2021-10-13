@@ -2,7 +2,6 @@ var inputUsername = document.querySelector('#username');
 var btnJoin = document.querySelector('#btn-join');
 
 var username;
-
 var websocket;
 
 function websocketOnMessage(event){
