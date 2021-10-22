@@ -8,8 +8,10 @@
       #prj{color:gray; font-size:small;}
       #center{text-align: center;}
       #btn{width:100px; height:30px; margin:auto; display:block;}
-      #label-container{text-align: center;}
-      #webcam-container{text-align: center; margin:50px 0px 10px;}
+      #label-container{text-align: center;
+        font-weight: bold;
+        font-size: large;;}
+      #webcam-container{text-align: center;;; margin:50px 0px 5px;}
     </style>
   </head>
 
@@ -71,15 +73,20 @@
         async function predict() {
             // predict can take in an image, video or canvas html element
             const prediction = await model.predict(webcam.canvas);
-            if(prediction[0].probability.toFixed(2) >= 0.5) {
+            // for (let i = 0; i < maxPredictions; i++) {
+            //     const classPrediction =
+            //         prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+            //     labelContainer.childNodes[i].innerHTML = classPrediction;
+            // }
+            if(prediction[0].probability.toFixed(2) >= 0.9) {
               labelContainer.childNodes[0].innerHTML = "Neutral";
-            } else if(prediction[1].probability.toFixed(2) >= 0.7) {
+            } else if(prediction[1].probability.toFixed(2) >= 0.1) {
               labelContainer.childNodes[0].innerHTML = "Happy";
-            } else if(prediction[2].probability.toFixed(2) >= 0.5) {
+            } else if(prediction[2].probability.toFixed(2) >= 0.2) {
               labelContainer.childNodes[0].innerHTML = "Surprise";
-            } else if(prediction[3].probability.toFixed(2) >= 0.5) {
+            } else if(prediction[3].probability.toFixed(2) >= 0.3) {
               labelContainer.childNodes[0].innerHTML = "Hand";
-            } else if(prediction[4].probability.toFixed(2) >= 0.4) {
+            } else if(prediction[4].probability.toFixed(2) >= 0.3) {
               labelContainer.childNodes[0].innerHTML = "None";
             } else {
               labelContainer.childNodes[0].innerHTML = "None";
