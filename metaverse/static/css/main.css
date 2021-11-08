@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
 .video-grid-container{
     display:grid;
     grid-template-columns: repeat(3,1fr);
@@ -7,11 +9,12 @@
 .main-grid-container{
     display:grid;
     grid-template-columns: 60% 20%;
+
 }
 
 video {
     border-radius:25%;
-    background-color: black;
+    background-color: rgb(54, 54, 54);
     margin: 10px 5px;
 }
 
@@ -22,12 +25,18 @@ body{
 
 * {
     box-sizing: border-box;
+    font-family: 'Gowun Dodum', sans-serif;
 }
+
+.prj{
+    text-align: right;
+}
+
 .team{
     color:white;
     padding: 30px;
     text-align: center;
-    font-size: 35px;
+    font-weight: bold;
 }
 
 .column {
@@ -38,6 +47,7 @@ body{
 
 .column.middle{
     width: 50%;
+    text-align: center;
 }
 
 .column.side{
@@ -51,3 +61,7 @@ body{
     clear: both;
 }
 
+
+.RoomEnter{
+    text-align: center;
+}
