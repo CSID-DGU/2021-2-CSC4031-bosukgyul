@@ -15,11 +15,16 @@ video {
     margin: 10px 5px;
 }
 
+body{
+    background-image:url('img/universe_1.png');
+    color:white;
+}
+
 * {
     box-sizing: border-box;
 }
 .team{
-    background-color: #f1f1f1;
+    color:white;
     padding: 30px;
     text-align: center;
     font-size: 35px;
@@ -37,6 +42,7 @@ video {
 
 .column.side{
     width: 25%;
+    text-align: center;
 }
 
 .row:after{
