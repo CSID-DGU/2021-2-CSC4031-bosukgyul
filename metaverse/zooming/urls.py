@@ -1,6 +1,8 @@
 from django.urls import path
 from .views import *
 
+app_name = 'zooming'
+
 urlpatterns = [
-    path('', main_view, name="main_view"),
+    path('ready/', ready, name="ready"),
 ]
