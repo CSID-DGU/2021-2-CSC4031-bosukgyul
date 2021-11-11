@@ -12,38 +12,73 @@ async function init() {
     maxPredictions = model.getTotalClasses();
 
     // model load test
-    console.log("model load");
+    // console.log("model load");
 
     window.requestAnimationFrame(loop);
 }
 
 // video load
+// let count = 0;
 async function loop() {
+/* ai prediction count control
+    if(count % 7 == 0) {
+        const localVideo = document.querySelector('#local-video');
+        await predict();
+    }
+    count++;
+*/
     const localVideo = document.querySelector('#local-video');
     await predict();
     window.requestAnimationFrame(loop);
 }
 
 // model predict
+let predict_result
 async function predict() {
     const prediction = await model.predict(localVideo);
 
+<<<<<<< HEAD
     if(prediction[1].probability >= 0.2) {
-        console.log(prediction[1].className);
+        predict_result = prediction[1].className;
+        console.log(predict_result);
     }
     else if(prediction[0].probability >= 0.8) {
-        console.log(prediction[0].className);
+        predict_result = prediction[0].className;
+        console.log(predict_result);
     }
     else if(prediction[2].probability >= 0.4) {
-        console.log(prediction[2].className);
+        predict_result = prediction[2].className;
+        console.log(predict_result);
     }
     else if(prediction[3].probability >= 0.2) {
-        console.log(prediction[3].className);
+        predict_result = prediction[3].className;
+        console.log(predict_result);
     }
     else if(prediction[4].probability >= 0.3) {
-        console.log(prediction[4].className);
+        predict_result = prediction[4].className;
+        console.log(predict_result);
     }
-    else console.log("none");
+    else {
+        predict_result = "none";
+        console.log(predict_result);
+    }
+=======
+//    if(prediction[1].probability >= 0.2) {
+//        console.log(prediction[1].className);
+//    }
+//    else if(prediction[0].probability >= 0.8) {
+//        console.log(prediction[0].className);
+//    }
+//    else if(prediction[2].probability >= 0.4) {
+//        console.log(prediction[2].className);
+//    }
+//    else if(prediction[3].probability >= 0.2) {
+//        console.log(prediction[3].className);
+//    }
+//    else if(prediction[4].probability >= 0.3) {
+//        console.log(prediction[4].className);
+//    }
+//    else console.log("none");
 
 //    console.log(prediction[0].probability);
     // for (let i = 0; i < maxPredictions; i++) {
@@ -51,5 +86,6 @@ async function predict() {
     //         prediction[i].className + ": " + prediction[i].probability.toFixed(2);
     //     labelContainer.childNodes[i].innerHTML = classPrediction;
     // }
+>>>>>>> 90fbff49257ddf794aff36c715e3f0b24598c201
 
 }
