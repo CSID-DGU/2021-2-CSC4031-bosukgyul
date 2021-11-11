@@ -12,7 +12,7 @@ async function init() {
     maxPredictions = model.getTotalClasses();
 
     // model load test
-    console.log("model load");
+    // console.log("model load");
 
     window.requestAnimationFrame(loop);
 }
@@ -37,6 +37,7 @@ let predict_result
 async function predict() {
     const prediction = await model.predict(localVideo);
 
+<<<<<<< HEAD
     if(prediction[1].probability >= 0.2) {
         predict_result = prediction[1].className;
         console.log(predict_result);
@@ -61,5 +62,30 @@ async function predict() {
         predict_result = "none";
         console.log(predict_result);
     }
+=======
+//    if(prediction[1].probability >= 0.2) {
+//        console.log(prediction[1].className);
+//    }
+//    else if(prediction[0].probability >= 0.8) {
+//        console.log(prediction[0].className);
+//    }
+//    else if(prediction[2].probability >= 0.4) {
+//        console.log(prediction[2].className);
+//    }
+//    else if(prediction[3].probability >= 0.2) {
+//        console.log(prediction[3].className);
+//    }
+//    else if(prediction[4].probability >= 0.3) {
+//        console.log(prediction[4].className);
+//    }
+//    else console.log("none");
+
+//    console.log(prediction[0].probability);
+    // for (let i = 0; i < maxPredictions; i++) {
+    //     const classPrediction =
+    //         prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+    //     labelContainer.childNodes[i].innerHTML = classPrediction;
+    // }
+>>>>>>> 90fbff49257ddf794aff36c715e3f0b24598c201
 
 }
