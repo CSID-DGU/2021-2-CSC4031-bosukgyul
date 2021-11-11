@@ -12,7 +12,7 @@ async function init() {
     maxPredictions = model.getTotalClasses();
 
     // model load test
-    console.log("model load");
+    console.log("model load ok");
 
     window.requestAnimationFrame(loop);
 }
