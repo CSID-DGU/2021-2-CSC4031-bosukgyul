@@ -5,3 +5,6 @@ def main_view(request):
 
 def ready(request):
     return render(request, 'zooming/ready.html')
+
+def landing(request):
+    return render(request, 'zooming/landing.html')
