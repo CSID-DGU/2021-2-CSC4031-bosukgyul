@@ -22,21 +22,35 @@
 
     <div class="row">
 
-      <div class = "column_middle">
+      <div class = "ready_left">
         <div class="main-grid-container">
           <div id="video-container">
              <div>
                <video id="local-video" style="float:none;" autoplay playsinline></video>
              </div>
-             <div class="btns">
-               <button id="btn-toggle-audio">Audio Mute</button>
-               <button id="btn-toggle-video">Video off</button>
-               <button id="btn-toggle-join">Join into the room</button>
-             </div>
+             
            </div>
          </div>
       </div>
 
+      <div class="ready_right">
+        <!--user name-->
+        <h5 id="label-username">User Name</h5>
+        <input id="username"><button id="btn-join">Enter</button>
+
+        <!--team name-->
+        <h5 id="label-teamname">Team Name</h5>
+        <input id="username"><button id="btn-join">Enter</button>
+
+        <div class="btns">
+          <button id="btn-toggle-audio">Audio Mute</button>
+          <button id="btn-toggle-video">Video off</button>
+        </div>
+
+        <div class="btns">
+          <button id="btn-toggle-join">Join into the Room</button>
+        </div>
+      </div>
 
     </div>
     

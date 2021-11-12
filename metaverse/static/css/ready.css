@@ -1,14 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+* {
+    font-family: 'Gowun Dodum', sans-serif;
+}
 body{
-    background-image:url('img/universe_1.jpg');
+    background-color:black;
     color:white;
 }
+.video-grid-container{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    background-color: black;
+}
 
-.column_middle{
-    display: flex;
+.main-grid-container{
+    display:grid;
+    grid-template-columns: 60% 20%;
+
+}
+
+video {
+    border-radius:25%;
+    background-color: rgb(29, 29, 29);
+    margin: 10px 5px;
+}
+
+.prj{
+    text-align: right;
+}
+
+.team{
+    color:white;
+    padding: 30px;
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+}
+.row::after{
+    content: "";
+    display: table;
+    clear: both;
+}
+.ready_left{
     justify-content: center;
+    text-align: center;
+    width: 75%;
+}
+
+.ready_right{
+    justify-content: center;
+    width: 25%;
 }
 
 .btns{
-    display: flex;
-    justify-content: center;
+    justify-content: left;
+    margin: 20px;
+}
+
+#btn-join{
+    margin: 10px;
+}
+
+#label-username{
+    margin: 10px;
+}
+
+#label-teamname{
+    margin: 10px;
 }
