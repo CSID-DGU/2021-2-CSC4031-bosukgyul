@@ -1,11 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');*/
+@font-face {
+    font-family: 'EliceDigitalBaeum_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/EliceDigitalBaeum_Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 * {
-    font-family: 'Gowun Dodum', sans-serif;
+    /*font-family: 'Gowun Dodum', sans-serif;*/
+    font-family: 'EliceDigitalBaeum_Bold';
 }
-body{
+
+.ready_body{
     background-color:black;
-    color:white;
+    color: white;
 }
 .video-grid-container{
     display:grid;
@@ -15,7 +23,8 @@ body{
 
 .main-grid-container{
     display:grid;
-    grid-template-columns: 60% 20%;
+    /*grid-template-columns: 60% 20%;*/
+    grid-template-columns: 90% 20%;
 
 }
 
@@ -26,39 +35,53 @@ video {
 }
 
 .prj{
-    text-align: right;
+    height: 90px;
+    line-height: 90px;
+    padding: 10px;
+    text-align: left;
+    color: white;
+    /*background-color:rgb(0, 103, 134);*/
+    background-image:url(img/office.jpg);
+    opacity: 60%;
+    background-size: 1000px;
+    background-repeat: repeat;
 }
 
 .team{
-    color:white;
-    padding: 30px;
+    color: white;
+    margin: 70px;
     text-align: center;
     font-size: 40px;
     font-weight: bold;
 }
-.row::after{
-    content: "";
-    display: table;
-    clear: both;
+
+.ready_main{
+    width: auto;
+    height: 300px;
 }
+
 .ready_left{
+    float: left;
     justify-content: center;
     text-align: center;
     width: 75%;
 }
 
 .ready_right{
+    float: left;
     justify-content: center;
     width: 25%;
 }
 
+
 .btns{
     justify-content: left;
-    margin: 20px;
+    margin: 30px;
 }
 
 #btn-join{
     margin: 10px;
+
 }
 
 #label-username{
