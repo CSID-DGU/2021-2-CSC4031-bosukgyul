@@ -1,0 +1,14 @@
+body{
+    background-image:url('img/universe_1.png');
+    color:white;
+}
+
+.column_middle{
+    display: flex;
+    justify-content: center;
+}
+
+.btns{
+    display: flex;
+    justify-content: center;
+}
