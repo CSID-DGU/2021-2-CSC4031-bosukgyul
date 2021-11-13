@@ -14,6 +14,7 @@ async function init() {
     // model load test
     console.log("model load ok");
 
+    // setInterval(loop, 3000);
     window.requestAnimationFrame(loop);
 }
 
