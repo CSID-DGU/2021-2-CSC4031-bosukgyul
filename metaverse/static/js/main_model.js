@@ -1,6 +1,6 @@
 const URL = "https://teachablemachine.withgoogle.com/models/qlKg3vZp9/";
 
-let model, maxPredictions;
+let model, maxPredictions, predict_result, labelContainer;
 init();
 
 // Load the image model
@@ -34,32 +34,38 @@ async function loop() {
 }
 
 // model predict
-let predict_result
+labelContainer = document.querySelector('#label-container');
 async function predict() {
     const prediction = await model.predict(localVideo);
 
     if(prediction[1].probability >= 0.2) {
         predict_result = prediction[1].className;
-        console.log(predict_result);
+        labelContainer.innerHTML = "Happy";
+        // console.log(predict_result);
     }
     else if(prediction[0].probability >= 0.8) {
         predict_result = prediction[0].className;
-        console.log(predict_result);
+        labelContainer.innerHTML = "Neutral";
+        // console.log(predict_result);
     }
     else if(prediction[2].probability >= 0.4) {
         predict_result = prediction[2].className;
-        console.log(predict_result);
+        labelContainer.innerHTML = "Surprise";
+        // console.log(predict_result);
     }
     else if(prediction[3].probability >= 0.2) {
         predict_result = prediction[3].className;
-        console.log(predict_result);
+        labelContainer.innerHTML = "Hand";
+        // console.log(predict_result);
     }
     else if(prediction[4].probability >= 0.3) {
         predict_result = prediction[4].className;
-        console.log(predict_result);
+        labelContainer.innerHTML = "None";
+        // console.log(predict_result);
     }
     else {
         predict_result = "none";
-        console.log(predict_result);
+        labelContainer.innerHTML = "None";
+        // console.log(predict_result);
     }
 }
