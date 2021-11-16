@@ -1907,7 +1907,7 @@ section {
   background-color: #68A4C4;
 }
 
-#btn-toggle-join {
+#btn-toggle-join{
   background-color: #68A4C4;
   color: white;
   font-size: 14px;
@@ -1921,6 +1921,21 @@ section {
   border: 1px solid #68A4C4;
   background-color: #2b5970;
 }
+#btn-join-special{
+  background-color: #68A4C4;
+  color: white;
+  font-size: 14px;
+  border: 1px solid #68A4C4;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+#btn-join-special:hover{
+  color: white;
+  border: 1px solid #68A4C4;
+  background-color: #2b5970;
+}
+
 
 /*--------------------------------------------------------------
 # Footer
