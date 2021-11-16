@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@font-face {
+    font-family: 'EliceDigitalBaeum_Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/EliceDigitalBaeum_Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 .video-grid-container{
     display:grid;
@@ -19,13 +24,13 @@ video {
 }
 
 body{
-    background-image:url('img/universe_1.jpg');
+    background-color: black;
     color:white;
 }
 
 * {
     box-sizing: border-box;
-    font-family: 'Gowun Dodum', sans-serif;
+    font-family: 'EliceDigitalBaeum_Bold';
 }
 
 .prj{
@@ -38,41 +43,40 @@ body{
     text-align: center;
     font-size: 40px;
     font-weight: bold;
+    margin-bottom: 50px;
 }
 
-.column {
+.wrapper{
+    width: 100%;
+    min-height: 300px;
+    margin: 0 auto;
+}
+
+.video-section{
     float: left;
-    padding: 10px;
-    height : 300px;
-}
-
-.column.middle{
-    width: 50%;
+    width: 60%;
     text-align: center;
 }
 
-.column.left{
-    width: 25%;
-    text-align: center;
-}
-
-.column.right{
-    width: 25%;
+.video-aside{
+    float:left;
+    width: 40%;
     text-align: left;
 }
 
 #label-container{
-    text-align: center;
+    text-align: left;
     font-weight: bold;
     font-size: large;
 }
 
-.row::after{
-    content: "";
-    display: table;
-    clear: both;
+#username{
+    margin-bottom: 30px;
 }
 
+#chat{
+    margin-top: 30px;
+}
 
 .RoomEnter{
     text-align: center;
