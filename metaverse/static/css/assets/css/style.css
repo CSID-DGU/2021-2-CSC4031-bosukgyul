@@ -348,7 +348,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   height: auto;
 }
 #hero .btn-get-started {
-  font-family: "Roboto", sans-serif;
+  font-family: 'EliceDigitalBaeum_Bold';
   font-weight: 500;
   font-size: 14px;
   letter-spacing: 1px;
@@ -1747,6 +1747,36 @@ section {
   border-radius: 4px;
   width: calc(100% - 40px);
 }
+
+#username {
+  border: 1px solid #ddd;
+  padding: 4px;
+  border-radius: 4px;
+  width: calc(100% - 70px);
+}
+
+#teamname {
+  border: 1px solid #ddd;
+  padding: 4px;
+  border-radius: 4px;
+  width: calc(100% - 70px);
+}
+
+#btn-join{
+  background: #2b5970;
+  color: #ddd;
+  transition: 0,3s;
+  border: 0;
+  padding: 5px 15px;
+  margin: -1px;
+  justify-content: left;
+}
+
+#btn-join:hover{
+  background: #68A4C4;
+  transition: 0.3s;
+}
+
 .blog .sidebar .search-form form button {
   position: absolute;
   top: 0;
@@ -1763,12 +1793,13 @@ section {
   border-radius: 0 4px 4px 0;
   line-height: 0;
 }
-.blog .sidebar .search-form form button i {
+.blog .sidebar .search-form input button i {
   line-height: 0;
 }
-.blog .sidebar .search-form form button:hover {
+.blog .sidebar .search-form input button:hover {
   background: #77adca;
 }
+
 .blog .sidebar .categories ul {
   list-style: none;
   padding: 0;
@@ -1842,6 +1873,53 @@ section {
   padding-left: 5px;
   color: #bedae8;
   font-size: 14px;
+}
+
+#btn-toggle-audio {
+  background-color: #2b5970;
+  color: white;
+  font-size: 14px;
+  border: 1px solid #68A4C4;
+  margin-right: 10px;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+#btn-toggle-video {
+  background-color: #2b5970;
+  color: white;
+  font-size: 14px;
+  border: 1px solid #68A4C4;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+#btn-toggle-audio:hover{
+  color: white;
+  border: 1px solid #68A4C4;
+  background-color: #68A4C4;
+  margin-right: 10px;
+}
+
+#btn-toggle-video:hover{
+  color: white;
+  border: 1px solid #68A4C4;
+  background-color: #68A4C4;
+}
+
+#btn-toggle-join {
+  background-color: #68A4C4;
+  color: white;
+  font-size: 14px;
+  border: 1px solid #68A4C4;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+#btn-toggle-join:hover{
+  color: white;
+  border: 1px solid #68A4C4;
+  background-color: #2b5970;
 }
 
 /*--------------------------------------------------------------
