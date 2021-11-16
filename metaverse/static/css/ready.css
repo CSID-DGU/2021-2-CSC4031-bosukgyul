@@ -42,36 +42,10 @@ video {
     color: white;
     /*background-color:rgb(0, 103, 134);*/
     background-image:url(img/office.jpg);
-    opacity: 60%;
     background-size: 1000px;
     background-repeat: repeat;
 }
 
-.team{
-    color: white;
-    margin: 70px;
-    text-align: center;
-    font-size: 40px;
-    font-weight: bold;
-}
-
-.ready_main{
-    width: auto;
-    height: 300px;
-}
-
-.ready_left{
-    float: left;
-    justify-content: center;
-    text-align: center;
-    width: 75%;
-}
-
-.ready_right{
-    float: left;
-    justify-content: center;
-    width: 25%;
-}
 
 
 .btns{
