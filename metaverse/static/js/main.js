@@ -142,9 +142,28 @@ var userMedia = navigator.mediaDevices.getUserMedia(constraints)
 var btnSendMsg = document.querySelector('#btn-send-msg');
 var messageList = document.querySelector('#message-list');
 var messageInput = document.querySelector('#msg');
+var emoj = document.querySelector('#label-container');
+var emojSend = document.querySelector('#emoticon-send');
 
 btnSendMsg.addEventListener('click', sendMsgOnclick);
+emojSend.addEventListener('click', sendEmoj);
 
+function sendEmoj(){
+    var emojMsg = emoj.textContent;
+
+    var li = document.createElement('li');
+    li.appendChild(document.createTextNode('My Feelings:' + emojMsg));
+    messageList.appendChild(li);
+
+    var dataChannels = getDataChannels();
+
+    message = username + '\'s Feeling: '+ emojMsg;
+    
+    for (index in dataChannels){
+        dataChannels[index].send(message);
+    }
+
+}
 function sendMsgOnclick(){
     var message = messageInput.value;
 
