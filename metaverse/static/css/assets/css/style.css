@@ -1437,6 +1437,7 @@ section {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   background-color: rgb(255, 255, 255);
   text-align: center;
+  height: 550px;
 }
 .blog .entry .entry-img {
   max-height: 440px;
@@ -1719,6 +1720,7 @@ section {
   color: #fff;
 }
 .blog .sidebar {
+  height: 550px;
   padding: 30px;
   margin: 0 0 60px 20px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
