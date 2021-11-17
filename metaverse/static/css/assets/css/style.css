@@ -9,7 +9,7 @@
 # General
 --------------------------------------------------------------*/
 body {
-  font-family: "Open Sans", sans-serif;
+  font-family: "RIDIBatang";
   color: #444;
 }
 
@@ -24,7 +24,7 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6, .font-primary {
-  font-family: "Roboto", sans-serif;
+  font-family: "RIDIBatang";
 }
 
 /*--------------------------------------------------------------
@@ -348,9 +348,9 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   height: auto;
 }
 #hero .btn-get-started {
-  font-family: 'EliceDigitalBaeum_Bold';
+  font-family: 'RIDIBatang';
   font-weight: 500;
-  font-size: 14px;
+  font-size: 16px;
   letter-spacing: 1px;
   display: inline-block;
   padding: 12px 32px;
@@ -1880,9 +1880,9 @@ section {
   color: white;
   font-size: 14px;
   border: 1px solid #68A4C4;
-  margin-right: 10px;
   padding: 5px;
   transition: 0.3s;
+  width: 150px;
 }
 
 #btn-toggle-video {
@@ -1892,13 +1892,13 @@ section {
   border: 1px solid #68A4C4;
   padding: 5px;
   transition: 0.3s;
+  width: 150px;
 }
 
 #btn-toggle-audio:hover{
   color: white;
   border: 1px solid #68A4C4;
   background-color: #68A4C4;
-  margin-right: 10px;
 }
 
 #btn-toggle-video:hover{
@@ -1914,6 +1914,7 @@ section {
   border: 1px solid #68A4C4;
   padding: 5px;
   transition: 0.3s;
+  width: 200px;
 }
 
 #btn-toggle-join:hover{

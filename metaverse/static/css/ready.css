@@ -6,9 +6,17 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'RIDIBatang';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/RIDIBatang.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
-    /*font-family: 'Gowun Dodum', sans-serif;*/
-    font-family: 'EliceDigitalBaeum_Bold';
+    /*font-family: 'Gowun Dodum', sans-serif;
+    font-family: 'EliceDigitalBaeum_Bold';*/
+    font-family: 'RIDIBatang';
 }
 
 .ready_body{
