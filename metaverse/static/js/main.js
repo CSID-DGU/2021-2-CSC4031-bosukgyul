@@ -65,7 +65,7 @@ btnJoin.addEventListener('click', () =>{
     if (loc.protocol == 'https:'){
         wsStart = 'wss://';
     }
-
+    // 여기 pathname만 변경하기
     var endPoint = wsStart + loc.host + loc.pathname;
 
     console.log("endPoint:", endPoint);
@@ -108,9 +108,23 @@ var userMedia = navigator.mediaDevices.getUserMedia(constraints)
 
         var audioTracks = stream.getAudioTracks();
         var videoTracks = stream.getVideoTracks();
+        var video_setting = document.querySelector('#Vstatus');
+        var audio_setting = document.querySelector('#Astatus');
+        
 
-        audioTracks[0].enabled = true;
-        videoTracks[0].enabled = true;
+        if (audio_setting.value  == '0'){
+            audioTracks[0].enabled = false;
+        }
+        else{
+            audioTracks[0].enabled = true;
+        }
+
+        if (video_setting.value == '0'){
+            videoTracks[0].enabled = false;
+        }
+        else{
+            videoTracks[0].enabled = true;
+        }
 
         btnToggleAudio.addEventListener('click', () => {
             console.log(audioTracks);

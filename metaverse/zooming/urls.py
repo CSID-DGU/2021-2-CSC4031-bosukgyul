@@ -5,5 +5,5 @@ app_name = 'zooming'
 
 urlpatterns = [
     path('ready/', ready, name="ready"),
-    path('meeting/', main_view, name="meeting"),
+    path('meeting/', meeting, name="meeting"),
  ]

@@ -45,36 +45,41 @@
           <div class="col-lg-4">
   
             <div class="sidebar">
-                
-              <!--Enter User name-->
-              <h3 class="sidebar-title">User Name</h3>
-              <div id="label-username">
-                <input id="username"> <button id="btn-join">✔</button>
-              </div>
-  
-              <!--Enter Team name-->                
-              <h3 class="sidebar-title">Team Name</h3>
-              <div id="label-teamname">
-                <input id="teamname"> <button id="btn-join">✔</button>
-              </div>
+                <form action="{% url 'zooming:meeting' %}" method="POST">
+                  {% csrf_token %}
+                  <!--Enter User name-->
+                  <h3 class="sidebar-title">User Name</h3>
+                  <div id="label-username">
+                    <input id="username" name="username"> 
+                  </div>
+      
+                  <!--Enter Team name-->                
+                  <h3 class="sidebar-title">Team Name</h3>
+                  <div id="label-teamname">
+                    <input id="teamname" name="teamname">
+                  </div>
 
-              <!--Settings-->                  
-              <h3 class="sidebar-title">Settings</h3>
-              <div class="sidebar-item tags">
+                  <!--Settings-->                  
+                  <h3 class="sidebar-title">Settings</h3>
+                  <div class="sidebar-item tags">
 
-                <div class="btn">
-                  <button id="btn-toggle-audio">Audio On / Off</button>
-                  <button id="btn-toggle-video">Video On / Off</button>
-                </div>
+                    <div class="btn">
+                      <button id="btn-toggle-audio" type='button'>Audio Off</button>
+                      <input hidden id="audio-status-check" name="audio_status" value="1">
+                      <button id="btn-toggle-video" type="button">Video Off</button>
+                      <input hidden id="video-status-check" name="video_status" value="1">
+                    </div>
 
-              </div>
-                
-              <!--Join Room--> 
-              <h3 class="sidebar-title"><br><br>Join the Room</h3>
-              <div style="text-align: center;">
-                <button onclick="location.href='{% url 'zooming:meeting' %}'" id="btn-toggle-join">Join</button>
-              </div>
+                  </div>
+                    
+                  <!--Join Room--> 
+                  <h3 class="sidebar-title"><br><br>Join the Room</h3>
+                  <div style="text-align: center;">
+                    <button type="submit" id="btn-toggle-join">Join</button>
+                  </div>
+              </form>
             </div><!-- End sidebar -->
+            
           </div><!-- End blog sidebar -->
         </div>
       </div>
