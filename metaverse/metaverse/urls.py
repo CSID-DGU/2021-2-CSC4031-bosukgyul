@@ -19,7 +19,7 @@ from zooming import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.main_view, name="main_view"),
+    path('', views.landing, name="landing"),
     path('zooming/', include('zooming.urls')),
 ]
 
