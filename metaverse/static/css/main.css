@@ -11,24 +11,6 @@
     font-style: normal;
 }
 
-.video-grid-container{
-    display:grid;
-    grid-template-columns: repeat(3,1fr);
-    background-color: black;
-}
-
-.main-grid-container{
-    display:grid;
-    grid-template-columns: 60% 20%;
-
-}
-
-video {
-    border-radius:25%;
-    background-color: rgb(29, 29, 29);
-    margin: 10px 5px;
-}
-
 body{
     background-color: black;
     color:white;
@@ -38,6 +20,86 @@ body{
     box-sizing: border-box;
     font-family: 'RIDIBatang';
 }
+
+.video-grid-container{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    background-color: black;
+}
+
+#main-grid-container{
+    display:grid;
+    width: 100%;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-content: center;
+
+}
+
+video {
+    border-radius:25%;
+    background-color: rgb(29, 29, 29);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+button{
+    height: 35px;
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+    border: white 1px solid;
+}
+
+button:hover{
+    background-color: white;
+    color: black;
+}
+
+#btn-toggle-audio{
+    width: 150px;
+    height: 35px;
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+    border: white 1px solid;
+}
+
+#btn-toggle-video{
+    width: 150px;
+    height: 35px;
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+    border: white 1px solid;
+
+}
+
+#btn-toggle-audio:hover{
+    background-color: white;
+    color: black;
+}
+
+#btn-toggle-video:hover{
+    background-color: white;
+    color: black;
+}
+
+#btn-send-msg{
+    width: 70px;
+    height: 35px;
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+    border: white 1px solid;
+    margin-left: 5px;
+}
+
+#btn-send-msg:hover{
+    background-color: white;
+    color: black;
+}
+
 
 .prj{
     text-align: right;
@@ -49,7 +111,7 @@ body{
     text-align: center;
     font-size: 40px;
     font-weight: bold;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .wrapper{
@@ -57,27 +119,29 @@ body{
 }
 
 .left{
-    width: 70%;
+    width: 75%;
     box-sizing: border-box;
     text-align: center;
     float: left;
+    display: flex;
 }
 
 .right{
-    width: 30%;
+    width: 25%;
     box-sizing: border-box;
     float: right;
     text-align: left;
+}
+
+.settings{
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 #label-container{
     text-align: left;
     font-weight: bold;
     font-size: large;
-}
-
-#username{
-    margin-bottom: 30px;
 }
 
 #chat{

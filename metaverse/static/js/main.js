@@ -334,7 +334,7 @@ function dcOnMessage(event){
 }
 
 function createVideo(peerUsername){
-    var videoContainer = document.querySelector('#video-container');
+    var videoContainer = document.querySelector('#main-grid-container');
     var remoteVideo = document.createElement('video');
     remoteVideo.id = peerUsername + '-video';
     remoteVideo.autoplay = true;

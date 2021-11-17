@@ -30,16 +30,19 @@
 }
 
 .main-grid-container{
-    display:grid;
-    /*grid-template-columns: 60% 20%;*/
-    grid-template-columns: 90% 20%;
+    /*display:grid;
+    grid-template-columns: 60% 20%;
+    grid-template-columns: 90% 20%;*/
+    height: 350px;
 
 }
 
 video {
     border-radius:25%;
-    background-color: rgb(29, 29, 29);
-    margin: 10px 5px;
+    border: 2px #1e4356 solid;
+    background-color: black;
+    margin-top: 20px;
+    width: 60%;
 }
 
 .prj{
@@ -49,7 +52,6 @@ video {
     text-align: left;
     color: white;
     /*background-color:rgb(0, 103, 134);*/
-    background-image:url(img/office.jpg);
     background-size: 1000px;
     background-repeat: repeat;
 }

@@ -15,6 +15,7 @@
   </head>
 
   <body>
+
     Name: {{ username }}
     Teamname: {{ teamname }}
     AStatus : {{ audioStatus}}
@@ -22,39 +23,40 @@
 
     <input type="hidden" id="Vstatus" value="{{videoStatus}}">
     <input type="hidden" id="Astatus" value="{{audioStatus}}">
-    
-    <p class="prj">2021학년도 2학기 융합캡스톤디자인 보석귤</p>
+  
+    <p class="prj">Dongguk University Convergence Capstone Design Bosukgyul </p>
+
     <div class="team">
       <p> BOSUKGYUL </p>
     </div>
 
     <div class="wrapper">
       <div class="left">
-        <!--div class="main-grid-container"-->
+        <div id="main-grid-container">
           <div id="video-container">
-            <div>
-              <video id="local-video" style="float:none;" autoplay playsinline></video>
-            </div>
-            <div style="margin: 20px 0px 20px 0px">
-              <button id="btn-toggle-audio">Audio Mute</button>
-              <button id="btn-toggle-video">Video off</button>
-            </div>
+            <video id="local-video" autoplay playsinline></video>
           </div>
         </div> 
       </div>
   
       <div class="right">
         <div>
-          <h3 id="label-username">Enter user name </h3>
+          <h4 id="label-username">Enter user name </h4>
           <input id="username"> <button id="btn-join"> Join Room </button>
         </div>
-  
+
+        <div class="settings">
+          <h4>Settings</h4>
+          <button id="btn-toggle-audio">Audio On/Off</button>
+          <button id="btn-toggle-video">Video On/Off</button>
+        </div>
+
         <div id="label-container"></div>
         <div><img id="emoticon" src=""></div>
         <button id="emoticon-send">emojSend</button>
   
         <div id="chat">
-          <h3> Chat </h3>
+          <h4> Chat </h4>
           <div id="messages">
               <ul id="message-list" style="list-style-type: none;"></ul>
           </div>

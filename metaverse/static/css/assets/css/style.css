@@ -1436,6 +1436,7 @@ section {
   margin-bottom: 60px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   background-color: rgb(255, 255, 255);
+  text-align: center;
 }
 .blog .entry .entry-img {
   max-height: 440px;
