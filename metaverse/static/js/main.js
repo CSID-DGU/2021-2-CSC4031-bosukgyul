@@ -160,7 +160,7 @@ var emoj = document.querySelector('#label-container');
 var emojSend = document.querySelector('#emoticon-send');
 
 btnSendMsg.addEventListener('click', sendMsgOnclick);
-emojSend.addEventListener('click', sendEmoj);
+setInterval(sendEmoj, 2000);
 
 function sendEmoj(){
     var emojMsg = emoj.textContent;
