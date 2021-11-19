@@ -159,7 +159,7 @@ var emoj = document.querySelector('#label-container');
 var emojSend = document.querySelector('#emoticon-send');
 
 btnSendMsg.addEventListener('click', sendMsgOnclick);
-emojSend.addEventListener('click', sendEmoj);
+setInterval(sendEmoj, 2000);
 
 function sendEmoj(){
     var emojMsg = emoj.textContent;
@@ -332,15 +332,26 @@ function dcOnMessage(event){
     messageList.appendChild(li);
 }
 
+var attendee = 0;
+var mainGridContainer = document.querySelector('#main-grid-container');
+
 function createVideo(peerUsername){
-    var videoContainer = document.querySelector('#video-container');
+
+    attendee += 1;
+    if(attendee<4){
+        mainGridContainer.style.gridTemplateColumns = "repeat(2, 1fr)";
+    }else{
+        mainGridContainer.style.gridTemplateColumns = "repeat(3, 1fr)";
+    }
+
+    //var videoContainer = document.querySelector('#main-grid-container');
     var remoteVideo = document.createElement('video');
     remoteVideo.id = peerUsername + '-video';
     remoteVideo.autoplay = true;
     remoteVideo.playsinline = true;
 
     var videoWrapper = document.createElement('div');
-    videoContainer.appendChild(videoWrapper);
+    mainGridContainer.appendChild(videoWrapper);
 
     videoWrapper.appendChild(remoteVideo);
     
