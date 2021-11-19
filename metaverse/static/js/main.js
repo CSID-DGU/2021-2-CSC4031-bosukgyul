@@ -110,7 +110,6 @@ var userMedia = navigator.mediaDevices.getUserMedia(constraints)
         var videoTracks = stream.getVideoTracks();
         var video_setting = document.querySelector('#Vstatus');
         var audio_setting = document.querySelector('#Astatus');
-        
 
         if (audio_setting.value  == '0'){
             audioTracks[0].enabled = false;
