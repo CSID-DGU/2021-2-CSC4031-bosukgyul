@@ -30,8 +30,6 @@ body{
 #main-grid-container{
     display:grid;
     width: 100%;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(2, 1fr);
     justify-content: center;
 
 }
@@ -41,7 +39,7 @@ video {
     background-color: rgb(29, 29, 29);
     margin-top: 20px;
     margin-bottom: 20px;
-    width: 200px;
+    width: 300px;
 }
 
 button{
