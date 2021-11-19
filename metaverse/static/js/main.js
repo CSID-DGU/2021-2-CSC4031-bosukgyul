@@ -157,23 +157,45 @@ var messageList = document.querySelector('#message-list');
 var messageInput = document.querySelector('#msg');
 var emoj = document.querySelector('#label-container');
 var emojSend = document.querySelector('#emoticon-send');
+var prior;
 
 btnSendMsg.addEventListener('click', sendMsgOnclick);
-setInterval(sendEmoj, 2000);
+emojSend.addEventListener('click', sendEmoj);
+// setInterval(sendEmoj, 2000);
 
 function sendEmoj(){
     var emojMsg = emoj.textContent;
 
-    var li = document.createElement('li');
-    li.appendChild(document.createTextNode('My Feelings:' + emojMsg));
-    messageList.appendChild(li);
+    var feelings_happy = document.querySelector('#feelings-happy');
+    var feelings_none = document.querySelector('#feelings-none');
+    var feelings_neutral = document.querySelector('#feelings-neutral');
+    var feelings_surprise = document.querySelector('#feelings-surprise');
+
+    if (prior != null){
+        prior.innerHTML = String(parseInt(prior.innerHTML)-1);
+    }
+
+    if (emojMsg == "Happy"){
+        prior = feelings_happy;
+        feelings_happy.innerHTML = String(parseInt(feelings_happy.innerHTML)+1);
+    }
+    else if (emojMsg == "Neutral"){
+        prior = feelings_neutral;
+        feelings_neutral.innerHTML = String(parseInt(feelings_neutral.innerHTML)+1);
+    }
+    else if (emojMsg == "None"){
+        prior = feelings_none;
+        feelings_none.innerHTML = String(parseInt(feelings_none.innerHTML)+1);
+    }
+    else if (emojMsg == "Surprise"){
+        prior = feelings_surprise;
+        feelings_surprise.innerHTML = String(parseInt(feelings_surprise.innerHTML)+1);
+    }
 
     var dataChannels = getDataChannels();
-
-    message = username + '\'s Feeling: '+ emojMsg;
     
     for (index in dataChannels){
-        dataChannels[index].send(message);
+        dataChannels[index].send(emojMsg);
     }
 
 }
@@ -190,7 +212,7 @@ function sendMsgOnclick(){
 
 
     for(index in dataChannels) {
-        dataChannels[index].send(message);
+        dataChannels[index].send(message, false);
     }
 
     messageInput.value = '';
@@ -323,13 +345,41 @@ function addLocalTracks(peer){
     return;
 }
 
+var dc_prior;
 
 function dcOnMessage(event){
-    var message = event.data;
+    var emojMsg = event.data;
 
-    var li = document.createElement('li');
-    li.appendChild(document.createTextNode(message));
-    messageList.appendChild(li);
+    var feelings_happy = document.querySelector('#feelings-happy');
+    var feelings_none = document.querySelector('#feelings-none');
+    var feelings_neutral = document.querySelector('#feelings-neutral');
+    var feelings_surprise = document.querySelector('#feelings-surprise');
+
+    if (dc_prior != null){
+        dc_prior.innerHTML = String(parseInt(dc_prior.innerHTML)-1);
+    }
+
+    if (emojMsg == "Happy"){
+        dc_prior = feelings_happy;
+        feelings_happy.innerHTML = String(parseInt(feelings_happy.innerHTML)+1);
+    }
+    else if (emojMsg == "Neutral"){
+        dc_prior = feelings_neutral;
+        feelings_neutral.innerHTML = String(parseInt(feelings_neutral.innerHTML)+1);
+    }
+    else if (emojMsg == "None"){
+        dc_prior = feelings_none;
+        feelings_none.innerHTML = String(parseInt(feelings_none.innerHTML)+1);
+    }
+    else if (emojMsg == "Surprise"){
+        dc_prior = feelings_surprise;
+        feelings_surprise.innerHTML = String(parseInt(feelings_surprise.innerHTML)+1);
+    }
+    // else if (flag == false){
+    //     var li = document.createElement('li');
+    //     li.appendChild(document.createTextNode(message));
+    //     messageList.appendChild(li);
+    // }
 }
 
 var attendee = 0;
