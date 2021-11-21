@@ -1,6 +1,7 @@
 var mapPeers = {};
 var webSocket;
 // consumers에서 정의된 send_message를 받았을 때
+var username = document.querySelector('#label-username').innerHTML;
 
 function webSocketOnMessage(event){
     var parseData = JSON.parse(event.data);
@@ -8,6 +9,7 @@ function webSocketOnMessage(event){
     var action = parseData['action'];
 
     if (username == peerUsername){
+        console.log(username);
         return;
     }
 
@@ -34,60 +36,84 @@ function webSocketOnMessage(event){
 
 }
 
-var labelUsername = document.querySelector('#label-username');
+// var labelUsername = document.querySelector('#label-username');
 var InputUsername = document.querySelector('#username');
 var btnJoin = document.querySelector('#btn-join');
+var loc = window.location;
+var wsStart = 'ws://';
 
-var username;
+if (loc.protocol == 'https:'){
+    wsStart = 'wss://';
+}
 
-btnJoin.addEventListener('click', () =>{
-    username = InputUsername.value;
+var endPoint = wsStart + loc.host +loc.pathname;
 
-    console.log(username);
-
-    if (username == ''){
-        return;
-    }
-
-    InputUsername.value = '';
-    InputUsername.disabled = true;
-    InputUsername.style.visibility = 'hidden';
-
-    btnJoin.disabled = true;
-    btnJoin.style.visibility = 'hidden';
-
-    var labelUsername = document.querySelector('#label-username');
-    labelUsername.innerHTML = username;
-
-    var loc = window.location;
-    var wsStart = 'ws://';
-
-    if (loc.protocol == 'https:'){
-        wsStart = 'wss://';
-    }
-    // 여기 pathname만 변경하기
-    var endPoint = wsStart + loc.host + loc.pathname;
-
-    console.log("endPoint:", endPoint);
-
-    webSocket = new WebSocket(endPoint);
-
-    webSocket.addEventListener('open', (e) => {
-        console.log("Connection Opened");
-        sendSignal('new-peer',{});
-
-    });
-
-    webSocket.addEventListener('close', (e) => {
-        console.log("Connection Closed");
-    });
-    webSocket.addEventListener('message', webSocketOnMessage);
-    webSocket.addEventListener('error', (e) => {
-        console.log("Error Occured");
-    });
-
+webSocket = new WebSocket(endPoint);
+console.log(endPoint);
+webSocket.addEventListener('open', (e) => {
+    console.log("Connection Opened");
+    sendSignal('new-peer',{});
 
 });
+
+webSocket.addEventListener('close', (e) => {
+    console.log("Connection Closed");
+});
+webSocket.addEventListener('message', webSocketOnMessage);
+webSocket.addEventListener('error', (e) => {
+    console.log("Error Occured" + e);
+});
+
+
+// btnJoin.addEventListener('click', () =>{
+//     username = InputUsername.value;
+
+//     console.log(username);
+
+//     if (username == ''){
+//         return;
+//     }
+
+//     InputUsername.value = '';
+//     InputUsername.disabled = true;
+//     InputUsername.style.visibility = 'hidden';
+
+//     btnJoin.disabled = true;
+//     btnJoin.style.visibility = 'hidden';
+
+//     var labelUsername = document.querySelector('#label-username');
+//     labelUsername.innerHTML = username;
+
+//     var loc = window.location;
+//     var wsStart = 'ws://';
+
+//     if (loc.protocol == 'https:'){
+//         wsStart = 'wss://';
+//     }
+//     // 여기 pathname만 변경하기
+//     var endPoint = wsStart + loc.host + loc.pathname;
+
+//     console.log("endPoint:", endPoint);
+
+//     webSocket = new WebSocket(endPoint);
+
+//     webSocket.addEventListener('open', (e) => {
+//         console.log("Connection Opened");
+//         sendSignal('new-peer',{});
+
+//     });
+
+//     webSocket.addEventListener('close', (e) => {
+//         console.log("Connection Closed");
+//     });
+//     webSocket.addEventListener('message', webSocketOnMessage);
+//     webSocket.addEventListener('error', (e) => {
+//         console.log("Error Occured");
+//     });
+
+// });
+
+
 
 var localStream = new MediaStream();
 
@@ -373,7 +399,7 @@ function createVideo(peerUsername){
         mainGridContainer.style.gridTemplateColumns = "repeat(3, 1fr)";
     }
 
-    //var videoContainer = document.querySelector('#main-grid-container');
+    // var videoContainer = document.querySelector('#main-grid-container');
     var remoteVideo = document.createElement('video');
     remoteVideo.id = peerUsername + '-video';
     remoteVideo.autoplay = true;
