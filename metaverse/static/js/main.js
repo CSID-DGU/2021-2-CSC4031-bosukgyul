@@ -152,14 +152,11 @@ var userMedia = navigator.mediaDevices.getUserMedia(constraints)
         console.log(error);
     }) 
 
-var btnSendMsg = document.querySelector('#btn-send-msg');
-var messageList = document.querySelector('#message-list');
-var messageInput = document.querySelector('#msg');
 var emoj = document.querySelector('#label-container');
 var emojSend = document.querySelector('#emoticon-send');
 var prior;
 
-btnSendMsg.addEventListener('click', sendMsgOnclick);
+// btnSendMsg.addEventListener('click', sendMsgOnclick);
 emojSend.addEventListener('click', sendEmoj);
 // setInterval(sendEmoj, 2000);
 
@@ -198,24 +195,6 @@ function sendEmoj(){
         dataChannels[index].send(emojMsg);
     }
 
-}
-function sendMsgOnclick(){
-    var message = messageInput.value;
-
-    var li = document.createElement('li');
-    li.appendChild(document.createTextNode('Me: '+ message));
-    messageList.appendChild(li);
-
-    var dataChannels = getDataChannels();
-
-    message = username + ' : ' + message;
-
-
-    for(index in dataChannels) {
-        dataChannels[index].send(message, false);
-    }
-
-    messageInput.value = '';
 }
 
 function sendSignal(action, message){
