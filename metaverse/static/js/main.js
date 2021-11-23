@@ -201,18 +201,22 @@ function sendEmoj(){
     if (emojMsg == "Happy"){
         prior = feelings_happy;
         feelings_happy.innerHTML = String(parseInt(feelings_happy.innerHTML)+1);
+        document.getElementById("happy-bar").value = 100;
     }
     else if (emojMsg == "Neutral"){
         prior = feelings_neutral;
         feelings_neutral.innerHTML = String(parseInt(feelings_neutral.innerHTML)+1);
+        document.getElementById("neutral-bar").value = 100;
     }
     else if (emojMsg == "None"){
         prior = feelings_none;
         feelings_none.innerHTML = String(parseInt(feelings_none.innerHTML)+1);
+        document.getElementById("none-bar").value = 100;
     }
     else if (emojMsg == "Surprise"){
         prior = feelings_surprise;
         feelings_surprise.innerHTML = String(parseInt(feelings_surprise.innerHTML)+1);
+        document.getElementById("surprise-bar").value = 100;
     }
 
     var dataChannels = getDataChannels();
