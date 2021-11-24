@@ -3,8 +3,6 @@ var webSocket;
 // consumers에서 정의된 send_message를 받았을 때
 var username = document.querySelector('#label-username').innerHTML;
 
-var mainGridContainer = document.querySelector('#main-grid-container');
-
 function webSocketOnMessage(event){
     var parseData = JSON.parse(event.data);
     var peerUsername = parseData['peer'];
@@ -395,6 +393,8 @@ function dcOnMessage(event){
 
 var attendee = 0;
 
+var mainGridContainer = document.querySelector('#main-grid-container');
+
 function createVideo(peerUsername){
 
     attendee += 1;
@@ -412,14 +412,14 @@ function createVideo(peerUsername){
 
     //user name below
     var videoName = document.createElement('p');
-    videoName = peerUsername;
+    videoName.innerHTML = peerUsername;
 
     var videoWrapper = document.createElement('div');
     mainGridContainer.appendChild(videoWrapper);
 
     videoWrapper.appendChild(remoteVideo);
     
-    videoWrapper.appendChile(videoName);
+    videoWrapper.appendChild(videoName);
 
     return remoteVideo;
 
