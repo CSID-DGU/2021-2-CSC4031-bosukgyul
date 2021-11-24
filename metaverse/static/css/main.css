@@ -38,7 +38,7 @@ video {
     border-radius:25%;
     background-color: #212124;
     border:  rgb(255, 233, 233), 1px, solid;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 20px;
     width: 300px;
 }
@@ -63,6 +63,7 @@ button:hover{
     color: white;
     transition: 0.3s;
     border: white 1px solid;
+    margin-right: 20px;
 }
 
 #btn-toggle-video{
@@ -72,17 +73,19 @@ button:hover{
     color: white;
     transition: 0.3s;
     border: white 1px solid;
-
+    margin-left: 20px;
 }
 
 #btn-toggle-audio:hover{
     background-color: white;
     color: black;
+    margin-right: 20px;
 }
 
 #btn-toggle-video:hover{
     background-color: white;
     color: black;
+    margin-left: 20px;
 }
 
 #btn-send-msg{
@@ -103,7 +106,7 @@ button:hover{
 
 .prj{
     text-align: right;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .team{
@@ -138,6 +141,9 @@ button:hover{
 .settings{
     margin-top: 20px;
     margin-bottom: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 #label-container{
