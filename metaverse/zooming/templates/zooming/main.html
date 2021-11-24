@@ -24,7 +24,9 @@
     <input type="hidden" id="Vstatus" value="{{videoStatus}}">
     <input type="hidden" id="Astatus" value="{{audioStatus}}">
   
-    <p class="prj">Dongguk University Convergence Capstone Design Bosukgyul </p>
+    <p class="prj">Dongguk University Convergence Capstone Design Bosukgyul 
+      <img src="../../../static/css/img/dgu.png" alt="dgu" style="width: 60px; height: 60px;">
+    </p>
 
     <!--div class="team">
       <p> BOSUKGYUL </p>
@@ -38,26 +40,25 @@
             <p id="label-username">{{ username }} 님</p>
           </div>
         </div> 
-      </div>
-  
-      <div class="right">
-        <div>
-          <!--h4 id="label-username">{{ username }} </h4>
-          <input id="username"> <button id="btn-join"> Join Room </button> -->
-        </div>
 
         <div class="settings">
-          <h4>Settings</h4>
           <button id="btn-toggle-audio">Audio</button>
           <button id="btn-toggle-video">Video</button>
         </div>
+      </div>
+  
+      <div class="right">
+        <!--div>
+          <h4 id="label-username">{{ username }} </h4>
+          <input id="username"> <button id="btn-join"> Join Room </button>
+        </div-->
 
         <div id="label-container"></div>
         <div><img id="emoticon" src=""></div>
         <button id="emoticon-send">emojSend</button>
         
         <div id="feelings-container">
-          <p>Haapy: <span id="feelings-happy">0</span></p>
+          <p>Happy: <span id="feelings-happy">0</span></p>
           <p>Neutral: <span id="feelings-neutral">0</span></p>
           <p>None: <span id="feelings-none">0</span></p>
           <p>Surprise: <span id="feelings-surprise">0</span></p>
