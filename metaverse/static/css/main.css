@@ -37,7 +37,7 @@ body{
 video {
     border-radius:25%;
     background-color: #212124;
-    border: 0.5px, rgb(255, 233, 233), solid;
+    border:  rgb(255, 233, 233), 1px, solid;
     margin-top: 20px;
     margin-bottom: 20px;
     width: 300px;
