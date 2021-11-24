@@ -413,7 +413,7 @@ function createVideo(peerUsername){
     mainGridContainer.appendChild(videoWrapper);
 
     videoWrapper.appendChild(remoteVideo);
-    
+
     return remoteVideo;
 
 }

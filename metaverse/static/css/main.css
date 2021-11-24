@@ -12,7 +12,7 @@
 }
 
 body{
-    background-color: black;
+    background-color: #212124;
     color:white;
 }
 
@@ -36,7 +36,8 @@ body{
 
 video {
     border-radius:25%;
-    background-color: rgb(29, 29, 29);
+    background-color: #212124;
+    border: 0.5px, rgb(255, 233, 233), solid;
     margin-top: 20px;
     margin-bottom: 20px;
     width: 300px;
@@ -44,7 +45,7 @@ video {
 
 button{
     height: 35px;
-    background-color: black;
+    background-color: #212124;
     color: white;
     transition: 0.3s;
     border: white 1px solid;
@@ -58,7 +59,7 @@ button:hover{
 #btn-toggle-audio{
     width: 150px;
     height: 35px;
-    background-color: black;
+    background-color: #212124;
     color: white;
     transition: 0.3s;
     border: white 1px solid;
@@ -67,7 +68,7 @@ button:hover{
 #btn-toggle-video{
     width: 150px;
     height: 35px;
-    background-color: black;
+    background-color: #212124;
     color: white;
     transition: 0.3s;
     border: white 1px solid;
@@ -87,7 +88,7 @@ button:hover{
 #btn-send-msg{
     width: 70px;
     height: 35px;
-    background-color: black;
+    background-color: #212124;
     color: white;
     transition: 0.3s;
     border: white 1px solid;
@@ -102,6 +103,7 @@ button:hover{
 
 .prj{
     text-align: right;
+    margin-bottom: 100px;
 }
 
 .team{
