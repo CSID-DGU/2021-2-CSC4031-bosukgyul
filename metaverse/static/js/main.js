@@ -185,6 +185,7 @@ var prior;
 // btnSendMsg.addEventListener('click', sendMsgOnclick);
 emojSend.addEventListener('click', sendEmoj);
 // setInterval(sendEmoj, 2000);
+var bar;
 
 function sendEmoj(){
     var emojMsg = emoj.textContent;
@@ -194,33 +195,55 @@ function sendEmoj(){
     var feelings_neutral = document.querySelector('#feelings-neutral');
     var feelings_surprise = document.querySelector('#feelings-surprise');
 
+    var dataChannels = getDataChannels();
+    var total = dataChannels.length+1;
+
     if (prior != null){
         prior.innerHTML = String(parseInt(prior.innerHTML)-1);
+        console.log(prior);
+
+        if(bar=="happy") {
+            document.getElementById("happy-bar").value = (parseInt(prior.innerHTML))*10/total;
+        }
+        else if(bar=="neutral") {
+            document.getElementById("neutral-bar").value = (parseInt(prior.innerHTML))*10/total;
+        }
+        else if(bar=="none") {
+            document.getElementById("none-bar").value = (parseInt(prior.innerHTML))*10/total;
+        }
+        else if(bar=="surprise") {
+            document.getElementById("surprise-bar").value = (parseInt(prior.innerHTML))*10/total;
+        }
+
     }
 
     if (emojMsg == "Happy"){
         prior = feelings_happy;
         feelings_happy.innerHTML = String(parseInt(feelings_happy.innerHTML)+1);
-        document.getElementById("happy-bar").value = 100;
+        document.getElementById("happy-bar").value = (parseInt(feelings_happy.innerHTML))*10/total;
+        bar = "happy";
     }
     else if (emojMsg == "Neutral"){
         prior = feelings_neutral;
         feelings_neutral.innerHTML = String(parseInt(feelings_neutral.innerHTML)+1);
-        document.getElementById("neutral-bar").value = 100;
+        document.getElementById("neutral-bar").value = (parseInt(feelings_neutral.innerHTML))*10/total;
+        bar = "neutral";
     }
     else if (emojMsg == "None"){
         prior = feelings_none;
         feelings_none.innerHTML = String(parseInt(feelings_none.innerHTML)+1);
-        document.getElementById("none-bar").value = 100;
+        document.getElementById("none-bar").value = (parseInt(feelings_none.innerHTML))*10/total;
+        bar = "none";
     }
     else if (emojMsg == "Surprise"){
         prior = feelings_surprise;
         feelings_surprise.innerHTML = String(parseInt(feelings_surprise.innerHTML)+1);
-        document.getElementById("surprise-bar").value = 100;
+        document.getElementById("surprise-bar").value = (parseInt(feelings_surprise.innerHTML))*10/total;
+        bar = "surprise";
     }
 
-    var dataChannels = getDataChannels();
-    
+//    var dataChannels = getDataChannels();
+
     for (index in dataChannels){
         dataChannels[index].send(emojMsg);
     }

@@ -64,22 +64,24 @@
           <p>Surprise: <span id="feelings-surprise">0</span></p>
         </div>
 
-        <div>
-            Happy
-			<progress value="20" max="100" id="happy-bar"></progress>
-		</div>
-        <div>
-            Neutral
-			<progress value="20" max="100" id="neutral-bar"></progress>
-		</div>
-        <div>
-            None
-			<progress value="20" max="100" id="none-bar"></progress>
-		</div>
-        <div>
-            Surprise
-			<progress value="20" max="100" id="surprise-bar"></progress>
-		</div>
+        <div class="emotion-bar">
+          <div class="progress">
+              Happy&nbsp;&nbsp;
+              <progress value="0" max="10" id="happy-bar"></progress>
+          </div>
+          <div class="progress">
+              Neutral&nbsp;
+              <progress value="0" max="10" id="neutral-bar"></progress>
+          </div>
+          <div class="progress">
+              None&nbsp;&nbsp;&nbsp;&nbsp;
+              <progress value="0" max="10" id="none-bar"></progress>
+          </div>
+          <div class="progress">
+              Surprise&nbsp;
+              <progress value="0" max="10" id="surprise-bar"></progress>
+          </div>
+        </div>
 
         <!-- <div id="chat">
           <h4> Chat </h4>
