@@ -36,7 +36,6 @@ function webSocketOnMessage(event){
 
 }
 
-// var labelUsername = document.querySelector('#label-username');
 var InputUsername = document.querySelector('#username');
 var btnJoin = document.querySelector('#btn-join');
 var loc = window.location;
@@ -62,57 +61,6 @@ webSocket.addEventListener('message', webSocketOnMessage);
 webSocket.addEventListener('error', (e) => {
     console.log("Error Occured" + e);
 });
-
-
-// btnJoin.addEventListener('click', () =>{
-//     username = InputUsername.value;
-
-//     console.log(username);
-
-//     if (username == ''){
-//         return;
-//     }
-
-//     InputUsername.value = '';
-//     InputUsername.disabled = true;
-//     InputUsername.style.visibility = 'hidden';
-
-//     btnJoin.disabled = true;
-//     btnJoin.style.visibility = 'hidden';
-
-//     var labelUsername = document.querySelector('#label-username');
-//     labelUsername.innerHTML = username;
-
-//     var loc = window.location;
-//     var wsStart = 'ws://';
-
-//     if (loc.protocol == 'https:'){
-//         wsStart = 'wss://';
-//     }
-//     // 여기 pathname만 변경하기
-//     var endPoint = wsStart + loc.host + loc.pathname;
-
-//     console.log("endPoint:", endPoint);
-
-//     webSocket = new WebSocket(endPoint);
-
-//     webSocket.addEventListener('open', (e) => {
-//         console.log("Connection Opened");
-//         sendSignal('new-peer',{});
-
-//     });
-
-//     webSocket.addEventListener('close', (e) => {
-//         console.log("Connection Closed");
-//     });
-//     webSocket.addEventListener('message', webSocketOnMessage);
-//     webSocket.addEventListener('error', (e) => {
-//         console.log("Error Occured");
-//     });
-
-// });
-
-
 
 var localStream = new MediaStream();
 
@@ -177,14 +125,8 @@ var userMedia = navigator.mediaDevices.getUserMedia(constraints)
         console.log(error);
     }) 
 
+window.addEventListener('unload', deletionEmoj);
 
-function deletionEmoj(){
-    var dataChannels = getDataChannels();
-    
-    for (index in dataChannels){
-        dataChannels[index].send('');
-    }
-}
 var emoj = document.querySelector('#label-container');
 var emojSend = document.querySelector('#emoticon-send');
 var prior;
