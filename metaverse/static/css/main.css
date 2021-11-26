@@ -38,9 +38,9 @@ video {
     border-radius:25%;
     background-color: #212124;
     border:  rgb(255, 233, 233), 1px, solid;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    width: 300px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    width: 150px;
 }
 
 button{
@@ -102,7 +102,6 @@ button:hover{
     background-color: white;
     color: black;
 }
-
 
 .prj{
     text-align: right;

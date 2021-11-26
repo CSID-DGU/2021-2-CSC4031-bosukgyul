@@ -385,17 +385,17 @@ function dcOnMessage(event){
     }
 }
 
-var attendee = 0;
+var attendee = 1;
 
 var mainGridContainer = document.querySelector('#main-grid-container');
 
 function createVideo(peerUsername){
 
     attendee += 1;
-    if(attendee<4){
-        mainGridContainer.style.gridTemplateColumns = "repeat(2, 1fr)";
+    if(attendee<5){
+        mainGridContainer.style.gridTemplateColumns = "repeat(4, 1fr)";
     }else{
-        mainGridContainer.style.gridTemplateColumns = "repeat(3, 1fr)";
+        mainGridContainer.style.gridTemplateColumns = "repeat(6, 1fr)";
     }
 
     // var videoContainer = document.querySelector('#main-grid-container');
@@ -411,10 +411,9 @@ function createVideo(peerUsername){
     var videoWrapper = document.createElement('div');
     mainGridContainer.appendChild(videoWrapper);
 
+    videoWrapper.appendChild(videoName);
     videoWrapper.appendChild(remoteVideo);
     
-    videoWrapper.appendChild(videoName);
-
     return remoteVideo;
 
 }
