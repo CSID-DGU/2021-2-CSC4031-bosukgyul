@@ -12,7 +12,7 @@
 }
 
 body{
-    background-color: black;
+    background-color: #212124;
     color:white;
 }
 
@@ -36,15 +36,16 @@ body{
 
 video {
     border-radius:25%;
-    background-color: rgb(29, 29, 29);
-    margin-top: 20px;
+    background-color: #212124;
+    border:  rgb(255, 233, 233), 1px, solid;
+    margin-top: 10px;
     margin-bottom: 20px;
     width: 300px;
 }
 
 button{
     height: 35px;
-    background-color: black;
+    background-color: #212124;
     color: white;
     transition: 0.3s;
     border: white 1px solid;
@@ -58,36 +59,39 @@ button:hover{
 #btn-toggle-audio{
     width: 150px;
     height: 35px;
-    background-color: black;
+    background-color: #212124;
     color: white;
     transition: 0.3s;
     border: white 1px solid;
+    margin-right: 20px;
 }
 
 #btn-toggle-video{
     width: 150px;
     height: 35px;
-    background-color: black;
+    background-color: #212124;
     color: white;
     transition: 0.3s;
     border: white 1px solid;
-
+    margin-left: 20px;
 }
 
 #btn-toggle-audio:hover{
     background-color: white;
     color: black;
+    margin-right: 20px;
 }
 
 #btn-toggle-video:hover{
     background-color: white;
     color: black;
+    margin-left: 20px;
 }
 
 #btn-send-msg{
     width: 70px;
     height: 35px;
-    background-color: black;
+    background-color: #212124;
     color: white;
     transition: 0.3s;
     border: white 1px solid;
@@ -102,6 +106,7 @@ button:hover{
 
 .prj{
     text-align: right;
+    margin-bottom: 50px;
 }
 
 .team{
@@ -136,6 +141,9 @@ button:hover{
 .settings{
     margin-top: 20px;
     margin-bottom: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 #label-container{
@@ -150,4 +158,35 @@ button:hover{
 
 .RoomEnter{
     text-align: center;
+}
+
+.emotion-bar{
+    padding: 40px 0;
+}
+
+.emotion-bar .progress{
+    height: 60px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    background-color:transparent;
+}
+
+.emotion-bar #happy-bar{
+    width: 100%;
+    height: 40px;
+}
+
+.emotion-bar #neutral-bar{
+    width: 100%;
+    height: 40px;
+}
+
+.emotion-bar #none-bar{
+    width: 100%;
+    height: 40px;
+}
+
+.emotion-bar #surprise-bar{
+    width: 100%;
+    height: 40px;
 }
