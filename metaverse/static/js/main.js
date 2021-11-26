@@ -224,11 +224,10 @@ function sendEmoj(){
     var feelings_neutral = document.querySelector('#feelings-neutral');
     var feelings_surprise = document.querySelector('#feelings-surprise');
 
-    if (prior != null && emojMsg != 'Hand'){
     var dataChannels = getDataChannels();
     var total = dataChannels.length+1;
 
-    if (prior != null){
+    if (prior != null && emojMsg != 'Hand'){
         prior.innerHTML = String(parseInt(prior.innerHTML)-1);
         console.log(prior);
 
@@ -271,8 +270,6 @@ function sendEmoj(){
         document.getElementById("surprise-bar").value = (parseInt(feelings_surprise.innerHTML))*10/total;
         bar = "surprise";
     }
-
-//    var dataChannels = getDataChannels();
 
     for (index in dataChannels){
         dataChannels[index].send(emojMsg);
@@ -438,11 +435,6 @@ function dcOnMessage(event){
         dc_prior = feelings_surprise;
         feelings_surprise.innerHTML = String(parseInt(feelings_surprise.innerHTML)+1);
     }
-    // else if (flag == false){
-    //     var li = document.createElement('li');
-    //     li.appendChild(document.createTextNode(message));
-    //     messageList.appendChild(li);
-    // }
 }
 
 var attendee = 0;
