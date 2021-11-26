@@ -51,7 +51,6 @@ var endPoint = wsStart + loc.host +loc.pathname;
 webSocket = new WebSocket(endPoint);
 console.log(endPoint);
 webSocket.addEventListener('open', (e) => {
-    console.log("Connection Opened");
     sendSignal('new-peer',{});
 
 });
@@ -178,10 +177,40 @@ var userMedia = navigator.mediaDevices.getUserMedia(constraints)
         console.log(error);
     }) 
 
+
+function deletionEmoj(){
+    var dataChannels = getDataChannels();
+    
+    for (index in dataChannels){
+        dataChannels[index].send('');
+    }
+}
 var emoj = document.querySelector('#label-container');
 var emojSend = document.querySelector('#emoticon-send');
 var prior;
 
+emojSend.addEventListener('click', checkHand);
+
+function checkHand(){
+    var emojMsg = emoj.textContent;
+
+    if (emojMsg == "Hand"){
+        console.log(btnToggleAudio.innerHTML);
+        if (btnToggleAudio.innerHTML == "Audio Mute"){
+            var mic_setting = confirm('마이크를 끄시겠습니까?');
+        }
+        else if (btnToggleAudio.innerHTML == "Audio UnMute"){
+            var mic_setting = confirm('마이크를 켜시겠습니까?');
+        }
+        
+        if (mic_setting == true){
+            btnToggleAudio.click();
+        }
+    }
+
+}
+
+setInterval(sendEmoj, 2000);
 // btnSendMsg.addEventListener('click', sendMsgOnclick);
 emojSend.addEventListener('click', sendEmoj);
 // setInterval(sendEmoj, 2000);
@@ -195,6 +224,7 @@ function sendEmoj(){
     var feelings_neutral = document.querySelector('#feelings-neutral');
     var feelings_surprise = document.querySelector('#feelings-surprise');
 
+    if (prior != null && emojMsg != 'Hand'){
     var dataChannels = getDataChannels();
     var total = dataChannels.length+1;
 
@@ -282,7 +312,7 @@ function createOfferer(peerUsername, receiver_channel_name){
 
         if (iceConnectionState === 'failed' || iceConnectionState === 'disconnected'|| iceConnectionState ==='closed' ){
             delete mapPeers[peerUsername];
-
+            
             if (iceConnectionState != 'closed'){
                 peer.close();
             }
@@ -334,6 +364,7 @@ function createAnswerer(offer, peerUsername, receiver_channel_name){
 
         if (iceConnectionState === 'failed' || iceConnectionState === 'disconnected'|| iceConnectionState ==='closed' ){
             delete mapPeers[peerUsername];
+            deletionEmoj();
 
             if (iceConnectionState != 'closed'){
                 peer.close();
@@ -461,7 +492,7 @@ function setOnTrack(peer, remoteVideo){
 function removeVideo(video){
     var videoWrapper = video.parentNode;
 
-    videoWrapper.parentNode.removeChild(videoWrapper);
+    videoWrapper.parentNode.removeChild(videoWrapper);    
 }
 
 function getDataChannels(){

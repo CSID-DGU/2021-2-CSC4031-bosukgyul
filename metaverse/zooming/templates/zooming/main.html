@@ -42,8 +42,20 @@
         </div> 
 
         <div class="settings">
-          <button id="btn-toggle-audio">Audio</button>
-          <button id="btn-toggle-video">Video</button>
+
+          <h4>Settings</h4>
+          {% if audioStatus  == '0' %}
+            <button id="btn-toggle-audio">Audio UnMute</button>
+          {% else %}
+            <button id="btn-toggle-audio">Audio Mute</button>
+          {% endif %}
+
+          {% if videoStatus  == '0' %}
+            <button id="btn-toggle-video">Video ON</button>
+          {% else %}
+            <button id="btn-toggle-video">Video OFF</button>
+          {% endif %}
+
         </div>
       </div>
   
@@ -97,8 +109,7 @@
       </div>
     </div>
 
-
-    
+      
     <!-- Optional JavaScript; choose one of the two! -->
     <script type="text/javascript" src = "{% static 'js/main.js' %}"></script>
     <!-- Option 1: Bootstrap Bundle with Popper -->
