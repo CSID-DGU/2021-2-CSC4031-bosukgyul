@@ -125,6 +125,13 @@ var userMedia = navigator.mediaDevices.getUserMedia(constraints)
         console.log(error);
     }) 
 
+function deletionEmoj(){
+    var dataChannels = getDataChannels(); 
+    
+    for (index in dataChannels){
+        dataChannels[index].send(emojMsg);
+    }
+}
 window.addEventListener('unload', deletionEmoj);
 
 var emoj = document.querySelector('#label-container');
@@ -303,7 +310,6 @@ function createAnswerer(offer, peerUsername, receiver_channel_name){
 
         if (iceConnectionState === 'failed' || iceConnectionState === 'disconnected'|| iceConnectionState ==='closed' ){
             delete mapPeers[peerUsername];
-            deletionEmoj();
 
             if (iceConnectionState != 'closed'){
                 peer.close();
