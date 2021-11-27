@@ -180,6 +180,8 @@ button:hover{
     margin-bottom: 30px;
     margin-left: 10px;
     background-color:transparent;
+    font-size: large;
+    font-style: bold;
 }
 
 .emotion-bar #happy-bar{
@@ -200,4 +202,12 @@ button:hover{
 .emotion-bar #surprise-bar{
     width: 100%;
     height: 40px;
+}
+
+#feelings-container{
+    visibility: hidden;
+}
+
+#emoticon-send{
+    visibility: hidden;
 }
