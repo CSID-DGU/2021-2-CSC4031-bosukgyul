@@ -406,6 +406,7 @@ function createVideo(peerUsername){
 
     //user name below
     var videoName = document.createElement('p');
+    videoName.style.fontSize = "15px"
     videoName.innerHTML = peerUsername;
 
     var videoWrapper = document.createElement('div');
