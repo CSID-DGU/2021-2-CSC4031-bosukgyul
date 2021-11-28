@@ -159,11 +159,19 @@ function checkHand(){
 
 }
 
+var progressBarHappy = $('.progress-bar-success');
+var progressNumberHappy = 0;
+var progressBarNeutral = $('.progress-bar-info');
+var progressNumberNeutral = 0;
+var progressBarNone = $('.progress-bar-warning');
+var progressNumberNone = 0;
+var progressBarSurprise = $('.progress-bar-danger');
+var progressNumberSurprise = 0;
+var bar;
+
 setInterval(sendEmoj, 2000);
 // btnSendMsg.addEventListener('click', sendMsgOnclick);
 emojSend.addEventListener('click', sendEmoj);
-// setInterval(sendEmoj, 2000);
-var bar;
 
 function sendEmoj(){
     var emojMsg = emoj.textContent;
@@ -178,19 +186,26 @@ function sendEmoj(){
 
     if (prior != null && emojMsg != 'Hand'){
         prior.innerHTML = String(parseInt(prior.innerHTML)-1);
-        console.log(prior);
 
         if(bar=="happy") {
-            document.getElementById("happy-bar").value = (parseInt(prior.innerHTML))*10/total;
+             progressNumberHappy = (parseInt(prior.innerHTML))*100/total;
+             progressBarHappy.css('width', progressNumberHappy+'%');
+             progressBarHappy.attr('aria-valuenow', progressNumberHappy);
         }
         else if(bar=="neutral") {
-            document.getElementById("neutral-bar").value = (parseInt(prior.innerHTML))*10/total;
+            progressNumberNeutral = (parseInt(prior.innerHTML))*100/total;
+            progressBarNeutral.css('width', progressNumberNeutral+'%');
+            progressBarNeutral.attr('aria-valuenow', progressNumberNeutral);
         }
         else if(bar=="none") {
-            document.getElementById("none-bar").value = (parseInt(prior.innerHTML))*10/total;
+            progressNumberNone = (parseInt(prior.innerHTML))*100/total;
+            progressBarNone.css('width', progressNumberNone+'%');
+            progressBarNone.attr('aria-valuenow', progressNumberNone);
         }
         else if(bar=="surprise") {
-            document.getElementById("surprise-bar").value = (parseInt(prior.innerHTML))*10/total;
+            progressNumberSurprise = (parseInt(prior.innerHTML))*100/total;
+            progressBarSurprise.css('width', progressNumberSurprise+'%');
+            progressBarSurprise.attr('aria-valuenow', progressNumberSurprise);
         }
 
     }
@@ -198,25 +213,33 @@ function sendEmoj(){
     if (emojMsg == "Happy"){
         prior = feelings_happy;
         feelings_happy.innerHTML = String(parseInt(feelings_happy.innerHTML)+1);
-        document.getElementById("happy-bar").value = (parseInt(feelings_happy.innerHTML))*10/total;
+        progressNumberHappy = (parseInt(feelings_happy.innerHTML))*100/total;
+        progressBarHappy.css('width', progressNumberHappy+'%');
+        progressBarHappy.attr('aria-valuenow', progressNumberHappy);
         bar = "happy";
     }
     else if (emojMsg == "Neutral"){
         prior = feelings_neutral;
         feelings_neutral.innerHTML = String(parseInt(feelings_neutral.innerHTML)+1);
-        document.getElementById("neutral-bar").value = (parseInt(feelings_neutral.innerHTML))*10/total;
+        progressNumberNeutral = (parseInt(feelings_neutral.innerHTML))*100/total;
+        progressBarNeutral.css('width', progressNumberNeutral+'%');
+        progressBarNeutral.attr('aria-valuenow', progressNumberNeutral);
         bar = "neutral";
     }
     else if (emojMsg == "None"){
         prior = feelings_none;
         feelings_none.innerHTML = String(parseInt(feelings_none.innerHTML)+1);
-        document.getElementById("none-bar").value = (parseInt(feelings_none.innerHTML))*10/total;
+        progressNumberNone = (parseInt(feelings_none.innerHTML))*100/total;
+        progressBarNone.css('width', progressNumberNone+'%');
+        progressBarNone.attr('aria-valuenow', progressNumberNone);
         bar = "none";
     }
     else if (emojMsg == "Surprise"){
         prior = feelings_surprise;
         feelings_surprise.innerHTML = String(parseInt(feelings_surprise.innerHTML)+1);
-        document.getElementById("surprise-bar").value = (parseInt(feelings_surprise.innerHTML))*10/total;
+        progressNumberSurprise = (parseInt(feelings_surprise.innerHTML))*100/total;
+        progressBarSurprise.css('width', progressNumberSurprise+'%');
+        progressBarSurprise.attr('aria-valuenow', progressNumberSurprise);
         bar = "surprise";
     }
 
