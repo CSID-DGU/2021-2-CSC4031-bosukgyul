@@ -188,8 +188,10 @@ button:hover{
 }
 
 .bar-label{
-    margin-top: 210px;
-    margin-left: -130px;
+    margin-top: 426px;
+    margin-left: 37px;
+    width 130%;
+    font-size: medium;
 }
 
 #feelings-container{
@@ -198,4 +200,8 @@ button:hover{
 
 #emoticon-send{
     display: none;
+}
+
+span{
+    margin-right: 24px;
 }
