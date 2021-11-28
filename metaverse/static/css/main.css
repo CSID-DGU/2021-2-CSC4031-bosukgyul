@@ -173,42 +173,33 @@ button:hover{
 }
 
 .emotion-bar{
-    padding: 40px 0;
+    margin-top: 210px;
+    margin-left: -130px;
+/*
+  padding: 150px 1px;
+  margin: 10px 10px;
+  */
 }
 
-.emotion-bar .progress{
-    height: 60px;
-    margin-bottom: 30px;
-    margin-left: 10px;
-    background-color:transparent;
-    font-size: large;
-    font-style: bold;
+.progress{
+    transform: rotate(-90deg);
+    width: 380px;
+    min-height: 30px;
+    margin-right: -305px;
+    float: left;
+    display: flex;
+    align-items: flex-end;
 }
 
-.emotion-bar #happy-bar{
-    width: 100%;
-    height: 40px;
-}
-
-.emotion-bar #neutral-bar{
-    width: 100%;
-    height: 40px;
-}
-
-.emotion-bar #none-bar{
-    width: 100%;
-    height: 40px;
-}
-
-.emotion-bar #surprise-bar{
-    width: 100%;
-    height: 40px;
+.bar-label{
+    margin-top: 210px;
+    margin-left: -130px;
 }
 
 #feelings-container{
-    visibility: hidden;
+    display: none;
 }
 
 #emoticon-send{
-    visibility: hidden;
+    display: none;
 }
