@@ -1,7 +1,16 @@
 var mapPeers = {};
 var webSocket;
-// consumers에서 정의된 send_message를 받았을 때
 var username = document.querySelector('#label-username').innerHTML;
+
+var progressBarHappy =$('.progress-bar-success');
+var progressBarNetural = $('.progress-bar-info');;
+var progressBarNone = $('.progress-bar-warning');
+var progressBarSurprise = $('.progress-bar-danger');
+var bar;
+
+var mapping_num = {'Happy':0, 'Neutral':0, 'None':0, 'Surprise':0};
+var dc_prior = {};
+var prior;
 
 function webSocketOnMessage(event){
     var parseData = JSON.parse(event.data);
@@ -129,16 +138,14 @@ function deletionEmoj(){
     var dataChannels = getDataChannels(); 
     
     for (index in dataChannels){
-        dataChannels[index].send(emojMsg);
+        dataChannels[index].send(username);
     }
 }
 window.addEventListener('unload', deletionEmoj);
 
 var emoj = document.querySelector('#label-container');
 var emojSend = document.querySelector('#emoticon-send');
-var prior;
 
-//emojSend.addEventListener('click', checkHand);
 setInterval(checkHand, 2000);
 
 function checkHand(){
@@ -160,92 +167,69 @@ function checkHand(){
 
 }
 
-var progressBarHappy = $('.progress-bar-success');
-var progressNumberHappy = 0;
-var progressBarNeutral = $('.progress-bar-info');
-var progressNumberNeutral = 0;
-var progressBarNone = $('.progress-bar-warning');
-var progressNumberNone = 0;
-var progressBarSurprise = $('.progress-bar-danger');
-var progressNumberSurprise = 0;
-var bar;
-
 setInterval(sendEmoj, 2000);
-// btnSendMsg.addEventListener('click', sendMsgOnclick);
-emojSend.addEventListener('click', sendEmoj);
 
 function sendEmoj(){
     var emojMsg = emoj.textContent;
 
-    var feelings_happy = document.querySelector('#feelings-happy');
-    var feelings_none = document.querySelector('#feelings-none');
-    var feelings_neutral = document.querySelector('#feelings-neutral');
-    var feelings_surprise = document.querySelector('#feelings-surprise');
-
     var dataChannels = getDataChannels();
     var total = dataChannels.length+1;
 
-    if (prior != null && emojMsg != 'Hand'){
-        prior.innerHTML = String(parseInt(prior.innerHTML)-1);
-
-        if(bar=="happy") {
-             progressNumberHappy = (parseInt(prior.innerHTML))*100/total;
-             progressBarHappy.css('width', progressNumberHappy+'%');
-             progressBarHappy.attr('aria-valuenow', progressNumberHappy);
-        }
-        else if(bar=="neutral") {
-            progressNumberNeutral = (parseInt(prior.innerHTML))*100/total;
-            progressBarNeutral.css('width', progressNumberNeutral+'%');
-            progressBarNeutral.attr('aria-valuenow', progressNumberNeutral);
-        }
-        else if(bar=="none") {
-            progressNumberNone = (parseInt(prior.innerHTML))*100/total;
-            progressBarNone.css('width', progressNumberNone+'%');
-            progressBarNone.attr('aria-valuenow', progressNumberNone);
-        }
-        else if(bar=="surprise") {
-            progressNumberSurprise = (parseInt(prior.innerHTML))*100/total;
-            progressBarSurprise.css('width', progressNumberSurprise+'%');
-            progressBarSurprise.attr('aria-valuenow', progressNumberSurprise);
-        }
-
+    if (prior == emojMsg || emojMsg == 'Hand'){
+        return ;
     }
+
+    if (prior != null) {
+        if (mapping_num[prior] > 0){
+            mapping_num[prior] -= 1;
+        }
+
+        var tmp = (mapping_num[prior] / total)*100;
+
+        if (prior == 'Happy'){
+            progressBarHappy.css('width', tmp+'%');
+            progressBarHappy.attr('aria-valuenow', tmp);
+        }
+        else if (prior == 'Neutral'){
+            progressBarNetural.css('width', tmp+'%');
+            progressBarNetural.attr('aria-valuenow', tmp);
+        }
+        else if(prior=="None") {
+            progressBarNone.css('width', tmp+'%');
+            progressBarNone.attr('aria-valuenow', tmp);
+        }
+        else if(prior=="Surprise") {
+            progressBarSurprise.css('width', tmp+'%');
+            progressBarSurprise.attr('aria-valuenow', tmp);
+        }
+    }
+
+    mapping_num[emojMsg] += 1;
+    prior = emojMsg;
+    var val = (mapping_num[emojMsg] / total)*100;
 
     if (emojMsg == "Happy"){
-        prior = feelings_happy;
-        feelings_happy.innerHTML = String(parseInt(feelings_happy.innerHTML)+1);
-        progressNumberHappy = (parseInt(feelings_happy.innerHTML))*100/total;
-        progressBarHappy.css('width', progressNumberHappy+'%');
-        progressBarHappy.attr('aria-valuenow', progressNumberHappy);
-        bar = "happy";
+        progressBarHappy.css('width', val+'%');
+        progressBarHappy.attr('aria-valuenow', val);
     }
     else if (emojMsg == "Neutral"){
-        prior = feelings_neutral;
-        feelings_neutral.innerHTML = String(parseInt(feelings_neutral.innerHTML)+1);
-        progressNumberNeutral = (parseInt(feelings_neutral.innerHTML))*100/total;
-        progressBarNeutral.css('width', progressNumberNeutral+'%');
-        progressBarNeutral.attr('aria-valuenow', progressNumberNeutral);
-        bar = "neutral";
+        progressBarNetural.css('width', val+'%');
+        progressBarNetural.attr('aria-valuenow', val);
     }
     else if (emojMsg == "None"){
-        prior = feelings_none;
-        feelings_none.innerHTML = String(parseInt(feelings_none.innerHTML)+1);
-        progressNumberNone = (parseInt(feelings_none.innerHTML))*100/total;
-        progressBarNone.css('width', progressNumberNone+'%');
-        progressBarNone.attr('aria-valuenow', progressNumberNone);
-        bar = "none";
+        progressBarNone.css('width', val+'%');
+        progressBarNone.attr('aira-valuenow', val);
+
     }
     else if (emojMsg == "Surprise"){
-        prior = feelings_surprise;
-        feelings_surprise.innerHTML = String(parseInt(feelings_surprise.innerHTML)+1);
-        progressNumberSurprise = (parseInt(feelings_surprise.innerHTML))*100/total;
-        progressBarSurprise.css('width', progressNumberSurprise+'%');
-        progressBarSurprise.attr('aria-valuenow', progressNumberSurprise);
-        bar = "surprise";
+        progressBarSurprise.css('width', val+'%');
+        progressBarSurprise.attr('aria-valuenow', val);
     }
+    
+    var tmp = username + emojMsg;
 
     for (index in dataChannels){
-        dataChannels[index].send(emojMsg);
+        dataChannels[index].send(tmp);
     }
 
 }
@@ -376,36 +360,65 @@ function addLocalTracks(peer){
 
     return;
 }
-
-var dc_prior;
-
 function dcOnMessage(event){
-    var emojMsg = event.data;
+    var data = event.data;
+    var name = data.slice(0,5);
+    var msg = data.slice(5, data.length);
 
-    var feelings_happy = document.querySelector('#feelings-happy');
-    var feelings_none = document.querySelector('#feelings-none');
-    var feelings_neutral = document.querySelector('#feelings-neutral');
-    var feelings_surprise = document.querySelector('#feelings-surprise');
+    var total = Object.keys(mapPeers).length+1;
 
-    if (dc_prior != null){
-        dc_prior.innerHTML = String(parseInt(dc_prior.innerHTML)-1);
+    if (msg == dc_prior[name]){
+        return ;
     }
 
-    if (emojMsg == "Happy"){
-        dc_prior = feelings_happy;
-        feelings_happy.innerHTML = String(parseInt(feelings_happy.innerHTML)+1);
+    if (dc_prior[name] != null){
+        if (mapping_num[dc_prior[name]] > 0){
+            mapping_num[dc_prior[name]] -= 1;
+        } 
+
+        var tmp = (mapping_num[dc_prior[name]] / total)*100;
+        if (dc_prior[name] == 'Happy'){
+            progressBarHappy.css('width', tmp+'%');
+            progressBarHappy.attr('aria-valuenow', tmp);
+        }
+        else if (dc_prior[name] == 'Neutral'){
+            progressBarNetural.css('width', tmp+'%');
+            progressBarNetural.attr('aria-valuenow', tmp);
+        }
+        else if(dc_prior[name] =="None") {
+            progressBarNone.css('width', tmp+'%');
+            progressBarNone.attr('aria-valuenow', tmp);
+        }
+        else if(dc_prior[name]=="Surprise") {
+            progressBarSurprise.css('width', tmp+'%');
+            progressBarSurprise.attr('aria-valuenow', tmp);
+        }
     }
-    else if (emojMsg == "Neutral"){
-        dc_prior = feelings_neutral;
-        feelings_neutral.innerHTML = String(parseInt(feelings_neutral.innerHTML)+1);
+    console.log(data);
+    console.log(name);
+    console.log(msg);
+    console.log(mapping_num[msg]);
+
+    mapping_num[msg] += 1;
+    dc_prior[name] = msg;
+    var val = (mapping_num[msg] / total)*100;
+
+    if (msg == "Happy"){
+        progressBarHappy.css('width', val+'%');
+        progressBarHappy.attr('aria-valuenow', val);
     }
-    else if (emojMsg == "None"){
-        dc_prior = feelings_none;
-        feelings_none.innerHTML = String(parseInt(feelings_none.innerHTML)+1);
+    else if (msg == "Neutral"){
+        progressBarNetural.css('width', val+'%');
+        progressBarNetural.attr('aria-valuenow', val);
     }
-    else if (emojMsg == "Surprise"){
-        dc_prior = feelings_surprise;
-        feelings_surprise.innerHTML = String(parseInt(feelings_surprise.innerHTML)+1);
+    else if (msg == "None"){
+        progressBarNone.css('width', val+'%');
+        progressBarNone.attr('aira-valuenow', val);
+
+    }
+    else if (msg == "Surprise"){
+        progressBarSurprise.css('width', val+'%');
+        progressBarSurprise.attr('aria-valuenow', val);
     }
 }
 
