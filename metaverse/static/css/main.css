@@ -194,14 +194,6 @@ button:hover{
     font-size: medium;
 }
 
-#feelings-container{
-    display: none;
-}
-
-#emoticon-send{
-    display: none;
-}
-
 span{
     margin-right: 24px;
 }
