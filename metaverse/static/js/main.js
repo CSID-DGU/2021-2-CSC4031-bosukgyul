@@ -138,7 +138,8 @@ var emoj = document.querySelector('#label-container');
 var emojSend = document.querySelector('#emoticon-send');
 var prior;
 
-emojSend.addEventListener('click', checkHand);
+//emojSend.addEventListener('click', checkHand);
+setInterval(checkHand, 2000);
 
 function checkHand(){
     var emojMsg = emoj.textContent;
