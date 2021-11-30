@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'EliceDigitalBaeum_Bold';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/EliceDigitalBaeum_Bold.woff') format('woff');
+    font-family: 'NanumSquareRound';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -28,8 +28,8 @@ body{
     width: 100%;
     height: 350px;
     background-color: black;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 60px;
+    margin-right: 60px;
 }
 
 #main-grid-container{
@@ -133,7 +133,7 @@ button:hover{
 }
 
 .left{
-    width: 75%;
+    width: 65%;
     box-sizing: border-box;
     text-align: center;
     float: left;
@@ -142,7 +142,7 @@ button:hover{
 }
 
 .right{
-    width: 25%;
+    width: 35%;
     box-sizing: border-box;
     float: right;
     text-align: left;
