@@ -85,6 +85,17 @@ button:hover{
     transition: 0.3s;
     border: white 1px solid;
     margin-left: 20px;
+    margin-right: 20px;
+}
+
+#btn-ppt{
+    width: 150px;
+    height: 35px;
+    background-color: #212124;
+    color: white;
+    transition: 0.3s;
+    border: white 1px solid;
+    margin-left: 20px;
 }
 
 #btn-toggle-audio:hover{
@@ -94,6 +105,13 @@ button:hover{
 }
 
 #btn-toggle-video:hover{
+    background-color: white;
+    color: black;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#btn-ppt:hover{
     background-color: white;
     color: black;
     margin-left: 20px;
@@ -195,4 +213,12 @@ button:hover{
 
 span{
     margin-right: 24px;
+}
+
+#feelings-container{
+    display: none;
+}
+
+#emoticon-send{
+    display: none;
 }

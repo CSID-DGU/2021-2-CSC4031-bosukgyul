@@ -141,6 +141,18 @@ function deletionEmoj(){
         dataChannels[index].send(username);
     }
 }
+
+var btnSharePpt = document.getElementById('btn-ppt');
+btnSharePpt.addEventListener('click', changePPT);
+
+var n = 0;
+function changePPT() {
+    var ppt_src;
+    ppt_src = "../../../static/css/img/" + n + "_ppt.PNG";
+    document.getElementById('sharePpt').src = ppt_src;
+    n++;
+}
+
 window.addEventListener('unload', deletionEmoj);
 
 var emoj = document.querySelector('#label-container');
@@ -167,7 +179,7 @@ function checkHand(){
 
 }
 
-setInterval(sendEmoj, 2000);
+setInterval(sendEmoj, 1000);
 
 function sendEmoj(){
     var emojMsg = emoj.textContent;
@@ -449,8 +461,8 @@ function createVideo(peerUsername){
     var videoWrapper = document.createElement('div');
     mainGridContainer.appendChild(videoWrapper);
 
-    videoWrapper.appendChild(videoName);
     videoWrapper.appendChild(remoteVideo);
+    videoWrapper.appendChild(videoName);
     
     return remoteVideo;
 
