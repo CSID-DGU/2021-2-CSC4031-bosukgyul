@@ -27,10 +27,9 @@ body{
 #sharedScreen{
     width: 100%;
     height: 350px;
-    border-radius: 10%;
-    background-color: white;
-    margin-left: 40px;
-    margin-right: 40px;
+    background-color: black;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 #main-grid-container{
@@ -190,7 +189,7 @@ button:hover{
 .bar-label{
     margin-top: 426px;
     margin-left: 37px;
-    width 130%;
+    width: 130%;
     font-size: medium;
 }
 
