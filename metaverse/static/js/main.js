@@ -158,7 +158,7 @@ window.addEventListener('unload', deletionEmoj);
 var emoj = document.querySelector('#label-container');
 var emojSend = document.querySelector('#emoticon-send');
 
-setInterval(checkHand, 2000);
+setInterval(checkHand, 3000);
 
 function checkHand(){
     var emojMsg = emoj.textContent;
