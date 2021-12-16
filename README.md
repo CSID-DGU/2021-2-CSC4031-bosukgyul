@@ -2,16 +2,14 @@
 2021-2 융합캡스톤디자인_팀 보석귤
 
 ### 기획배경
-![slide3](./readme-images/slide-3.PNG)
+![slide2](./readme-images/background.jpg)
+![slide3](./readme-images/PainPoint from Payer.png)
+![slide4](./readme-images/PainPoint from User.png)
 ### 서비스 소개
-![slide4](./readme-images/slide-4.PNG)
-![slide5](./readme-images/slide-5.PNG)
-![slide6](./readme-images/slide-6.PNG)
-![slide7](./readme-images/slide-7.PNG)
-![slide8](./readme-images/slide-8.PNG)
+![slide5](./readme-images/intro.jpg)
 
 ### 기대효과
-![slide9](./readme-images/slide-9.PNG)
+![slide6](./readme-images/imporve.jpg)
 
 
 ## 개발환경  
