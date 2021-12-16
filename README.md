@@ -5,6 +5,7 @@
 ![slide2](./readme-images/background.jpg)
 ![slide3](./readme-images/PainPoint from Payer.png)
 ![slide4](./readme-images/PainPoint from User.png)
+
 ### 서비스 소개
 ![slide5](./readme-images/intro.jpg)
 
