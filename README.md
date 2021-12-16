@@ -1,16 +1,16 @@
 # 인공지능을 활용해 개선된 메타버스 화상회의 시스템
 2021-2 융합캡스톤디자인_팀 보석귤
 
-### 기획배경
 ![slide2](./readme-images/background.jpg)
-![slide3](./readme-images/PainPoint from Payer.png)
-![slide4](./readme-images/PainPoint from User.png)
+![slide3](./readme-images/payer.png)
+![slide4](./readme-images/user.png)
 
-### 서비스 소개
+### 프로젝트 목표
 ![slide5](./readme-images/intro.jpg)
 
+
 ### 기대효과
-![slide6](./readme-images/imporve.jpg)
+![slide6](./readme-images/improve.jpg)
 
 
 ## 개발환경  
